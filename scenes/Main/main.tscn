@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://b4wapb00rw2j3"]
+
+[ext_resource type="Script" uid="uid://k5mtee557e4s" path="res://scenes/Main/player.gd" id="1_gol0p"]
+[ext_resource type="PackedScene" uid="uid://dbro1jpqd5lw2" path="res://scenes/Pickup/pickup_cube.tscn" id="2_8gcrf"]
+[ext_resource type="Script" uid="uid://bwgqwow1snlda" path="res://scenes/Main/hotbar.gd" id="2_rdp1x"]
+[ext_resource type="PackedScene" uid="uid://ctoq42t3gpsu8" path="res://scenes/Pickup/pickup_cylinder.tscn" id="3_rdp1x"]
+[ext_resource type="PackedScene" uid="uid://dwkqj78l7ved2" path="res://scenes/Pickup/pickup_sphere.tscn" id="4_nyu32"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6pqdc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6pqdc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6pqdc"]
+radius = 0.35
+height = 1.8
+
+[node name="Main" type="Node3D" unique_id=1160587111]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=998027503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1111050156]
+transform = Transform3D(30, 0, 0, 0, 0.2, 0, 0, 0, 30, 0, 0, 0)
+mesh = SubResource("BoxMesh_6pqdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=646483514]
+transform = Transform3D(30, 0, 0, 0, 0.2, 0, 0, 0, 30, 0, 0, 0)
+shape = SubResource("BoxShape3D_6pqdc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1297977768]
+transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 0, 0)
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=892591854]
+script = ExtResource("1_gol0p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1611770262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_6pqdc")
+
+[node name="Head" type="Node3D" parent="Player" unique_id=1372917907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=548207646]
+
+[node name="InteractRay" type="RayCast3D" parent="Player/Head/Camera3D" unique_id=509724213]
+target_position = Vector3(0, 0, -2.75)
+collide_with_areas = true
+
+[node name="HeldItem" type="MeshInstance3D" parent="Player/Head/Camera3D" unique_id=195097542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.25, -0.7)
+
+[node name="PlaceRay" type="RayCast3D" parent="Player/Head/Camera3D" unique_id=39188379]
+target_position = Vector3(0, 0, -4)
+
+[node name="Hotbar" type="CanvasLayer" parent="Player" unique_id=1370053947]
+script = ExtResource("2_rdp1x")
+
+[node name="Pickup Cubo" parent="." unique_id=801915620 instance=ExtResource("2_8gcrf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 0.25, -3.5)
+
+[node name="Pickup Cilindro" parent="." unique_id=1200936830 instance=ExtResource("3_rdp1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0.3, -3.5)
+
+[node name="Pickup Esfera" parent="." unique_id=704508977 instance=ExtResource("4_nyu32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -3.5)
