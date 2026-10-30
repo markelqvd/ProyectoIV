@@ -16,7 +16,7 @@ func _ready() -> void:
 
 	# Mira en el centro de la pantalla.
 	var crosshair := Label.new()
-	crosshair.text = "+"
+	crosshair.text = ""
 	crosshair.set_anchors_preset(Control.PRESET_CENTER)
 	crosshair.offset_left = -10.0
 	crosshair.offset_right = 10.0
