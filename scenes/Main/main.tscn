@@ -6,10 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://ctoq42t3gpsu8" path="res://scenes/Pickup/pickup_cylinder.tscn" id="3_rdp1x"]
 [ext_resource type="PackedScene" uid="uid://dwkqj78l7ved2" path="res://scenes/Pickup/pickup_sphere.tscn" id="4_nyu32"]
 [ext_resource type="Shader" uid="uid://bmb64eqibh1r2" path="res://scenes/Palettes/Pixelado.gdshader" id="6_nyu32"]
-[ext_resource type="Texture2D" uid="uid://ddum0hmgah578" path="res://scenes/Palettes/waldgeist-39-1x.png" id="7_5wuev"]
+[ext_resource type="Texture2D" uid="uid://hlhtsqlkp7ym" path="res://scenes/Palettes/downgraded-32-1x.png" id="8_k7uo0"]
 [ext_resource type="PackedScene" uid="uid://t0ctyw70sta2" path="res://scenes/FemaleHand/female_hand.glb" id="8_w0isb"]
+[ext_resource type="PackedScene" uid="uid://bhjdx5fvlsrue" path="res://scenes/Drawer/drawer.tscn" id="9_k7uo0"]
+[ext_resource type="PackedScene" uid="uid://csp3a3ule0ypu" path="res://scenes/Drawer/Drawer B.fbx" id="10_qiqqp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6pqdc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noqlg"]
+albedo_color = Color(0.34117648, 0.16862746, 0.05490196, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6pqdc"]
 
@@ -19,8 +24,8 @@ height = 1.8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pnij8"]
 shader = ExtResource("6_nyu32")
-shader_parameter/palette = ExtResource("7_5wuev")
-shader_parameter/palette_size = 39
+shader_parameter/palette = ExtResource("8_k7uo0")
+shader_parameter/palette_size = 32
 shader_parameter/dither_strength = 0.15
 shader_parameter/vignette = 0.6
 
@@ -34,11 +39,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 4
+stretch_shrink = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1977704988]
 handle_input_locally = false
-size = Vector2i(288, 162)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="Floor" type="StaticBody3D" parent="SubViewportContainer/SubViewport" unique_id=998027503]
@@ -47,6 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Floor" unique_id=1111050156]
 transform = Transform3D(30, 0, 0, 0, 0.2, 0, 0, 0, 30, 0, 0, 0)
 mesh = SubResource("BoxMesh_6pqdc")
+surface_material_override/0 = SubResource("StandardMaterial3D_noqlg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Floor" unique_id=646483514]
 transform = Transform3D(30, 0, 0, 0, 0.2, 0, 0, 0, 30, 0, 0, 0)
@@ -105,3 +111,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Drawer" parent="SubViewportContainer/SubViewport" unique_id=1613305388 instance=ExtResource("9_k7uo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.426476, 0.72646177, -3.9586504)
+
+[node name="Drawer2" parent="SubViewportContainer/SubViewport" unique_id=1386713484 instance=ExtResource("9_k7uo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.426, 0.340617, -3.959)
+
+[node name="Drawer B" parent="." unique_id=2004268882 instance=ExtResource("10_qiqqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4292035, 0.0018851347, -4.069343)

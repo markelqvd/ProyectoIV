@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bhjdx5fvlsrue"]
+
+[ext_resource type="Script" uid="uid://dv3446ptbph3d" path="res://addons/drawer_interaction/drawer.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bq11lbumdxedt" path="res://addons/drawer_interaction/prompt_dot.svg" id="2_dot"]
+[ext_resource type="PackedScene" uid="uid://dnrha0tm10hb" path="res://scenes/Drawer/Drawer A Ac.fbx" id="2_ivot1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_area"]
+size = Vector3(1.2, 1, 1.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_drawer"]
+size = Vector3(0.5, 0.2, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6pqdc"]
+size = Vector3(1.1838684, 0.049591064, 0.5827637)
+
+[node name="Drawer" type="Node3D" unique_id=1386713484]
+script = ExtResource("1_script")
+
+[node name="InteractArea" type="Area3D" parent="." unique_id=813484648]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea" unique_id=1923708532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
+shape = SubResource("BoxShape3D_area")
+
+[node name="Moving" type="Node3D" parent="." unique_id=1031516139]
+
+[node name="DrawerMesh" type="MeshInstance3D" parent="Moving" unique_id=821064349]
+visible = false
+mesh = SubResource("BoxMesh_drawer")
+
+[node name="Drawer A Ac" parent="Moving" unique_id=1925813379 instance=ExtResource("2_ivot1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04042059, -0.09532794)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Moving/Drawer A Ac" unique_id=1501453252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0043182373, -0.10064703, 0.025869936)
+shape = SubResource("BoxShape3D_6pqdc")
+
+[node name="Handle" type="Marker3D" parent="Moving" unique_id=2034640828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.27)
+
+[node name="Prompt" type="Sprite3D" parent="Moving/Handle" unique_id=1341028328]
+pixel_size = 0.0004
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("2_dot")
+
+[node name="Contents" type="Node3D" parent="Moving" unique_id=859341303]

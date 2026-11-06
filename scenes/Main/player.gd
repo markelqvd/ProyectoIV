@@ -39,6 +39,7 @@ func _ready() -> void:
 
 	# Mostrar el inventario inicial y ocultar la mano vacía.
 	refresh_inventory_ui()
+	add_to_group("player")
 
 
 func _unhandled_input(event: InputEvent) -> void:
