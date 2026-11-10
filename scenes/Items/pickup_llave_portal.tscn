@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/Pickup/pickup.gd" id="1_pickup"]
+[ext_resource type="Script" path="res://scenes/Items/item_visual.gd" id="2_visual"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k"]
+size = Vector3(0.26, 0.07, 0.14)
+
+[node name="PickupLlavePortal" type="Area3D"]
+script = ExtResource("1_pickup")
+item_id = "llave_portal"
+display_name = "Llave del portal"
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0.07, 0.01, 0)
+script = ExtResource("2_visual")
+item_id = "llave_portal"
+item_scale = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_k")

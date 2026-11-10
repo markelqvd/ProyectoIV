@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dwkqj78l7ved2" path="res://scenes/Pickup/pickup_sphere.tscn" id="4_nyu32"]
 [ext_resource type="Shader" uid="uid://bmb64eqibh1r2" path="res://scenes/Palettes/Pixelado.gdshader" id="6_nyu32"]
 [ext_resource type="Texture2D" uid="uid://hlhtsqlkp7ym" path="res://scenes/Palettes/downgraded-32-1x.png" id="8_k7uo0"]
-[ext_resource type="PackedScene" uid="uid://t0ctyw70sta2" path="res://scenes/FemaleHand/female_hand.glb" id="8_w0isb"]
+[ext_resource type="PackedScene" path="res://scenes/FemaleHand/hand_viewmodel.tscn" id="8_w0isb"]
 [ext_resource type="PackedScene" uid="uid://bhjdx5fvlsrue" path="res://scenes/Drawer/drawer.tscn" id="9_k7uo0"]
 [ext_resource type="PackedScene" uid="uid://csp3a3ule0ypu" path="res://scenes/Drawer/Drawer B.fbx" id="10_qiqqp"]
 
@@ -19,7 +19,7 @@ albedo_color = Color(0.34117648, 0.16862746, 0.05490196, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6pqdc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6pqdc"]
-radius = 0.35
+radius = 0.22
 height = 1.8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pnij8"]
@@ -83,8 +83,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.25, -0.7)
 [node name="PlaceRay" type="RayCast3D" parent="SubViewportContainer/SubViewport/Player/Head/Camera3D" unique_id=39188379]
 target_position = Vector3(0, 0, -4)
 
-[node name="Sketchfab_Scene" parent="SubViewportContainer/SubViewport/Player/Head/Camera3D" unique_id=356270791 instance=ExtResource("8_w0isb")]
-transform = Transform3D(-0.015205401, -0.0011508078, -0.04761796, 0.047568336, 0.0022137312, -0.015243057, 0.0024591037, -0.049937688, 0.00042162603, 0.687212, -0.4644674, -0.49033558)
+[node name="HandViewmodel" parent="SubViewportContainer/SubViewport/Player/Head/Camera3D" unique_id=356270791 instance=ExtResource("8_w0isb")]
 
 [node name="Hotbar" type="CanvasLayer" parent="SubViewportContainer/SubViewport/Player" unique_id=1370053947]
 offset = Vector2(190, 50)
