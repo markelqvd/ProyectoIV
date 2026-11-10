@@ -21,9 +21,7 @@
 [ext_resource type="Script" uid="uid://o6t1br7ci0jy" path="res://scenes/Game/safe_wheel.gd" id="p8_wheel"]
 [ext_resource type="Shader" uid="uid://bmb64eqibh1r2" path="res://scenes/Palettes/Pixelado.gdshader" id="pix_shader"]
 [ext_resource type="Script" uid="uid://k5mtee557e4s" path="res://scenes/Main/player.gd" id="player_gd"]
-[ext_resource type="PackedScene" uid="uid://dbro1jpqd5lw2" path="res://scenes/Pickup/pickup_cube.tscn" id="p_cube"]
 [ext_resource type="PackedScene" path="res://scenes/Key/pickup_key.tscn" id="p_key"]
-[ext_resource type="PackedScene" uid="uid://dwkqj78l7ved2" path="res://scenes/Pickup/pickup_sphere.tscn" id="p_sphere"]
 [ext_resource type="Shader" uid="uid://cfu6hel5hivsx" path="res://scenes/House/rain_glass.gdshader" id="rain_glass"]
 [ext_resource type="Script" uid="uid://dirtldo3x8si5" path="res://scenes/House/storm.gd" id="storm_gd"]
 
@@ -8200,12 +8198,6 @@ script = ExtResource("p8_end")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Casa/Rellano/FinDemo" unique_id=2128195269]
 shape = SubResource("p8_46")
-
-[node name="EsferaComedor" parent="SubViewportContainer/SubViewport/Casa" unique_id=1227603486 instance=ExtResource("p_sphere")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.15, 1.02, 7.1)
-
-[node name="CuboDormitorio" parent="SubViewportContainer/SubViewport/Casa" unique_id=178323377 instance=ExtResource("p_cube")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9, 0.25, 4.2)
 
 [node name="Interruptores" type="Node3D" parent="SubViewportContainer/SubViewport/Casa" unique_id=1845477775]
 

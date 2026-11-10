@@ -52,7 +52,7 @@ func _stream_for(sound: String) -> AudioStreamWAV:
 		"rattle": samples = _rattle()
 		"drawer_open": samples = _slide(0.35, true)
 		"drawer_close": samples = _slide(0.28, false)
-		"door_open": samples = _creak(0.9)
+		"door_open": samples = _creak(0.7)
 		"door_close": samples = _thump(0.3)
 		"curtain": samples = _curtain()
 		"pickup": samples = _blip(520.0, 880.0, 0.14)
@@ -162,17 +162,30 @@ func _slide(dur: float, opening: bool) -> PackedFloat32Array:
 
 
 func _creak(dur: float) -> PackedFloat32Array:
+	# Puerta de madera: clic del pestillo, roce suave de aire y un leve crujido grave.
 	var b := _buf(dur)
-	var phase: float = 0.0
 	var lp: float = 0.0
+	var lp2: float = 0.0
+	var phase: float = 0.0
 	for i in b.size():
 		var t: float = float(i) / RATE
-		var f: float = 160.0 + 90.0 * (t / dur) + 25.0 * sin(t * 37.0)
-		phase += f / RATE
-		var saw: float = fmod(phase, 1.0) * 2.0 - 1.0
-		lp = lerpf(lp, saw, 0.3)
-		var env: float = sin(clampf(t / dur, 0.0, 1.0) * PI) * (0.6 + 0.4 * sin(t * 23.0))
-		b[i] = lp * env * 0.35
+		var v: float = 0.0
+		# pestillo (dos clics cortos)
+		if t < 0.03:
+			v += (randf() * 2.0 - 1.0) * exp(-t * 220.0) * 0.7
+		var t2: float = t - 0.045
+		if t2 > 0.0 and t2 < 0.03:
+			v += (randf() * 2.0 - 1.0) * exp(-t2 * 260.0) * 0.4
+		# aire al moverse la hoja: ruido muy filtrado con subida y bajada suave
+		lp = lerpf(lp, randf() * 2.0 - 1.0, 0.04)
+		lp2 = lerpf(lp2, lp, 0.2)
+		var swell: float = sin(clampf((t - 0.05) / (dur - 0.05), 0.0, 1.0) * PI)
+		v += lp2 * swell * 1.6
+		# crujido de la bisagra: tono grave que sube un poco, muy bajito
+		var hinge_env: float = sin(clampf((t - 0.08) / 0.35, 0.0, 1.0) * PI)
+		phase += (95.0 + 40.0 * clampf((t - 0.08) / 0.35, 0.0, 1.0)) / RATE
+		v += sin(TAU * phase + sin(t * 31.0) * 0.6) * hinge_env * 0.08
+		b[i] = v
 	return b
 
 
