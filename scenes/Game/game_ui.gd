@@ -102,6 +102,12 @@ func _ready() -> void:
 
 	_build_keypad()
 
+	# Capturar el ratón al empezar. En una build la ventana puede tardar en tener el foco,
+	# así que se intenta varias veces.
+	_capture_mouse.call_deferred()
+	get_tree().create_timer(0.3).timeout.connect(_capture_mouse)
+	get_tree().create_timer(1.0).timeout.connect(_capture_mouse)
+
 	get_viewport().size_changed.connect(_layout)
 	_layout()
 
@@ -241,7 +247,27 @@ func _show_journal_page() -> void:
 		"Diario %d/%d  ·  ← → para pasar  ·  Tab o clic para cerrar" % [_journal_index + 1, notes.size()])
 
 
+func _notification(what: int) -> void:
+	# Al volver a la ventana del juego (alt-tab, clic en la barra...), recuperar el ratón.
+	if what == NOTIFICATION_APPLICATION_FOCUS_IN:
+		_capture_mouse()
+
+
+func _capture_mouse() -> void:
+	if _kp_open or _ending:
+		return
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
 func _input(event: InputEvent) -> void:
+	# Si el ratón está libre (por ejemplo, tras pulsar Esc), un clic lo vuelve a capturar
+	# sin que ese clic cuente como interacción.
+	if not _kp_open and not _ending and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		if event is InputEventMouseButton and event.pressed:
+			_capture_mouse()
+			_block_until = Time.get_ticks_msec() + 150
+			get_viewport().set_input_as_handled()
+			return
 	if _kp_open:
 		_keypad_input(event)
 		return
