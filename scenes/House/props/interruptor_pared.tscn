@@ -1,0 +1,54 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://scenes/Interactables/prompt_dot.svg" id="1_dot_svg"]
+[ext_resource type="Script" path="res://scenes/Interactables/light_switch.gd" id="2_p4_switch"]
+[ext_resource type="Material" path="res://scenes/House/materials/blanco_lacado.tres" id="3_mat_blanco_lacado"]
+[ext_resource type="Material" path="res://scenes/House/materials/lampara_off.tres" id="4_mat_lampara_off"]
+[ext_resource type="Material" path="res://scenes/House/materials/almohada.tres" id="5_mat_almohada"]
+
+[sub_resource type="BoxShape3D" id="p4_1"]
+size = Vector3(1.6, 2.2, 1.8)
+
+[sub_resource type="BoxMesh" id="p4_2"]
+size = Vector3(0.085, 0.085, 0.008)
+
+[sub_resource type="BoxMesh" id="p4_3"]
+size = Vector3(0.05, 0.06, 0.008)
+
+[node name="InterruptorPared" type="Node3D"]
+script = ExtResource("2_p4_switch")
+off_material = ExtResource("4_mat_lampara_off")
+open_rotation_degrees = Vector3(-14, 0, 0)
+duration = 0.08
+min_look_dot = 0.9
+
+[node name="InteractArea" type="Area3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
+shape = SubResource("p4_1")
+
+[node name="Placa" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004)
+material_override = ExtResource("3_mat_blanco_lacado")
+mesh = SubResource("p4_2")
+
+[node name="Moving" type="Node3D" parent="."]
+
+[node name="Tecla" type="MeshInstance3D" parent="Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.011)
+material_override = ExtResource("5_mat_almohada")
+mesh = SubResource("p4_3")
+
+[node name="Handle" type="Marker3D" parent="Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.012)
+
+[node name="Prompt" type="Sprite3D" parent="Moving/Handle"]
+pixel_size = 0.0004
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("1_dot_svg")
+
+[node name="Contents" type="Node3D" parent="Moving"]

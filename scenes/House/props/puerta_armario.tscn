@@ -1,0 +1,57 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://scenes/Interactables/prompt_dot.svg" id="1_dot_svg"]
+[ext_resource type="Script" path="res://scenes/Interactables/openable.gd" id="2_drawer_gd"]
+[ext_resource type="Material" path="res://scenes/House/materials/laton.tres" id="3_mat_laton"]
+[ext_resource type="Material" path="res://scenes/House/materials/madera_media.tres" id="4_mat_madera_media"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_127"]
+size = Vector3(0.12, 0.02, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_167"]
+size = Vector3(1.595, 2.18, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_168"]
+size = Vector3(0.995, 2.18, 0.022)
+
+[node name="PuertaArmario" type="Node3D"]
+script = ExtResource("2_drawer_gd")
+open_offset = Vector3(0, 0, 0)
+duration = 0.6
+min_look_dot = 0.8
+
+[node name="InteractArea" type="Area3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4975, 1.09, 0)
+shape = SubResource("BoxShape3D_167")
+
+[node name="Moving" type="Node3D" parent="."]
+
+[node name="Handle" type="Marker3D" parent="Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.915, 1.1, 0)
+
+[node name="Prompt" type="Sprite3D" parent="Moving/Handle"]
+pixel_size = 0.0004
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("1_dot_svg")
+
+[node name="Contents" type="Node3D" parent="Moving"]
+
+[node name="Hoja" type="MeshInstance3D" parent="Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4975, 1.09, 0)
+material_override = ExtResource("4_mat_madera_media")
+mesh = SubResource("BoxMesh_168")
+
+[node name="ManillaA" type="MeshInstance3D" parent="Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.915, 1.1, 0.041)
+material_override = ExtResource("3_mat_laton")
+mesh = SubResource("BoxMesh_127")
+
+[node name="ManillaB" type="MeshInstance3D" parent="Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.915, 1.1, -0.041)
+material_override = ExtResource("3_mat_laton")
+mesh = SubResource("BoxMesh_127")

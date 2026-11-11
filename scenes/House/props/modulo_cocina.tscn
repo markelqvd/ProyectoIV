@@ -1,0 +1,239 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://scenes/Interactables/prompt_dot.svg" id="1_dot_svg"]
+[ext_resource type="Script" path="res://scenes/Interactables/openable.gd" id="2_drawer_gd"]
+[ext_resource type="Material" path="res://scenes/House/materials/blanco_lacado.tres" id="3_mat_blanco_lacado"]
+[ext_resource type="Material" path="res://scenes/House/materials/interior_mueble.tres" id="4_mat_interior_mueble"]
+[ext_resource type="Material" path="res://scenes/House/materials/metal.tres" id="5_mat_metal"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_151"]
+size = Vector3(0.16, 0.018, 0.018)
+
+[sub_resource type="BoxMesh" id="BoxMesh_313"]
+size = Vector3(0.6, 0.76, 0.56)
+
+[sub_resource type="BoxMesh" id="BoxMesh_314"]
+size = Vector3(0.6, 0.09, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_315"]
+size = Vector3(0.6, 0.9, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_316"]
+size = Vector3(0.9, 1.4, 1.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_317"]
+size = Vector3(0.58, 0.18, 0.018)
+
+[sub_resource type="BoxMesh" id="BoxMesh_318"]
+size = Vector3(0.54, 0.012, 0.45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_319"]
+size = Vector3(0.012, 0.135, 0.45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_320"]
+size = Vector3(0.54, 0.135, 0.012)
+
+[sub_resource type="BoxMesh" id="BoxMesh_321"]
+size = Vector3(0.58, 0.22, 0.018)
+
+[sub_resource type="BoxMesh" id="BoxMesh_322"]
+size = Vector3(0.012, 0.165, 0.45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_323"]
+size = Vector3(0.54, 0.165, 0.012)
+
+[sub_resource type="BoxMesh" id="BoxMesh_324"]
+size = Vector3(0.58, 0.32, 0.018)
+
+[sub_resource type="BoxMesh" id="BoxMesh_325"]
+size = Vector3(0.012, 0.24, 0.45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_326"]
+size = Vector3(0.54, 0.24, 0.012)
+
+[node name="ModuloCocina" type="StaticBody3D"]
+
+[node name="Casco" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -0.02)
+material_override = ExtResource("3_mat_blanco_lacado")
+mesh = SubResource("BoxMesh_313")
+
+[node name="Zocalo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045, 0.24)
+material_override = ExtResource("5_mat_metal")
+mesh = SubResource("BoxMesh_314")
+
+[node name="Col235" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+shape = SubResource("BoxShape3D_315")
+
+[node name="Cajon1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.765, 0.27)
+script = ExtResource("2_drawer_gd")
+open_offset = Vector3(0, 0, 0.36)
+duration = 0.45
+
+[node name="InteractArea" type="Area3D" parent="Cajon1"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajon1/InteractArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+shape = SubResource("BoxShape3D_316")
+
+[node name="Moving" type="Node3D" parent="Cajon1"]
+
+[node name="Handle" type="Marker3D" parent="Cajon1/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
+
+[node name="Prompt" type="Sprite3D" parent="Cajon1/Moving/Handle"]
+pixel_size = 0.0004
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("1_dot_svg")
+
+[node name="Contents" type="Node3D" parent="Cajon1/Moving"]
+
+[node name="Frente" type="MeshInstance3D" parent="Cajon1/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.009)
+material_override = ExtResource("3_mat_blanco_lacado")
+mesh = SubResource("BoxMesh_317")
+
+[node name="Fondo" type="MeshInstance3D" parent="Cajon1/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.074, -0.243)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_318")
+
+[node name="LadoI" type="MeshInstance3D" parent="Cajon1/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264, -0.0125, -0.243)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_319")
+
+[node name="LadoD" type="MeshInstance3D" parent="Cajon1/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.264, -0.0125, -0.243)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_319")
+
+[node name="Trasera" type="MeshInstance3D" parent="Cajon1/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0125, -0.462)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_320")
+
+[node name="Tirador" type="MeshInstance3D" parent="Cajon1/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.012)
+material_override = ExtResource("5_mat_metal")
+mesh = SubResource("BoxMesh_151")
+
+[node name="Cajon2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555, 0.27)
+script = ExtResource("2_drawer_gd")
+open_offset = Vector3(0, 0, 0.36)
+duration = 0.45
+
+[node name="InteractArea" type="Area3D" parent="Cajon2"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajon2/InteractArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+shape = SubResource("BoxShape3D_316")
+
+[node name="Moving" type="Node3D" parent="Cajon2"]
+
+[node name="Handle" type="Marker3D" parent="Cajon2/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
+
+[node name="Prompt" type="Sprite3D" parent="Cajon2/Moving/Handle"]
+pixel_size = 0.0004
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("1_dot_svg")
+
+[node name="Contents" type="Node3D" parent="Cajon2/Moving"]
+
+[node name="Frente" type="MeshInstance3D" parent="Cajon2/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.009)
+material_override = ExtResource("3_mat_blanco_lacado")
+mesh = SubResource("BoxMesh_321")
+
+[node name="Fondo" type="MeshInstance3D" parent="Cajon2/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.094, -0.243)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_318")
+
+[node name="LadoI" type="MeshInstance3D" parent="Cajon2/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264, -0.0175, -0.243)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_322")
+
+[node name="LadoD" type="MeshInstance3D" parent="Cajon2/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.264, -0.0175, -0.243)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_322")
+
+[node name="Trasera" type="MeshInstance3D" parent="Cajon2/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0175, -0.462)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_323")
+
+[node name="Tirador" type="MeshInstance3D" parent="Cajon2/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.012)
+material_override = ExtResource("5_mat_metal")
+mesh = SubResource("BoxMesh_151")
+
+[node name="Cajon3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0.27)
+script = ExtResource("2_drawer_gd")
+open_offset = Vector3(0, 0, 0.36)
+duration = 0.45
+
+[node name="InteractArea" type="Area3D" parent="Cajon3"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajon3/InteractArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+shape = SubResource("BoxShape3D_316")
+
+[node name="Moving" type="Node3D" parent="Cajon3"]
+
+[node name="Handle" type="Marker3D" parent="Cajon3/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
+
+[node name="Prompt" type="Sprite3D" parent="Cajon3/Moving/Handle"]
+pixel_size = 0.0004
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("1_dot_svg")
+
+[node name="Contents" type="Node3D" parent="Cajon3/Moving"]
+
+[node name="Frente" type="MeshInstance3D" parent="Cajon3/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.009)
+material_override = ExtResource("3_mat_blanco_lacado")
+mesh = SubResource("BoxMesh_324")
+
+[node name="Fondo" type="MeshInstance3D" parent="Cajon3/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.144, -0.243)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_318")
+
+[node name="LadoI" type="MeshInstance3D" parent="Cajon3/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264, -0.03, -0.243)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_325")
+
+[node name="LadoD" type="MeshInstance3D" parent="Cajon3/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.264, -0.03, -0.243)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_325")
+
+[node name="Trasera" type="MeshInstance3D" parent="Cajon3/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, -0.462)
+material_override = ExtResource("4_mat_interior_mueble")
+mesh = SubResource("BoxMesh_326")
+
+[node name="Tirador" type="MeshInstance3D" parent="Cajon3/Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.012)
+material_override = ExtResource("5_mat_metal")
+mesh = SubResource("BoxMesh_151")

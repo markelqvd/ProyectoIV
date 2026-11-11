@@ -1,6 +1,4 @@
 shader_type spatial;
-// Cristal de ventana con gotas de lluvia: gotas quietas y gotas que resbalan.
-// Usa la posición en el mundo, así que funciona en cualquier ventana sin UVs.
 render_mode blend_mix, depth_draw_opaque, cull_disabled;
 
 uniform vec4 tint : source_color = vec4(0.55, 0.62, 0.70, 1.0);
@@ -22,7 +20,6 @@ float hash12(vec2 p) {
 	return fract((p3.x + p3.y) * p3.z);
 }
 
-// Devuelve (desplazamiento xy para la normal, máscara de gota).
 vec3 static_drops(vec2 uv) {
 	vec2 cell = floor(uv);
 	vec2 f = fract(uv) - 0.5;
@@ -45,10 +42,8 @@ vec3 sliding_drops(vec2 uv, float t) {
 	vec2 f = fract(p) - 0.5;
 	float hx = hash12(cell) - 0.5;
 	f.x -= hx * 0.5 + sin(p.y * 6.0 + h * 20.0) * 0.05;
-	// gota principal (alargada)
 	vec2 d = f / vec2(1.0, 4.0);
 	float m = smoothstep(0.07, 0.04, length(d)) * step(0.5, hash12(cell + 1.3));
-	// estela
 	float trail = smoothstep(0.04, 0.0, abs(f.x)) * smoothstep(-0.5, 0.2, f.y) * step(0.5, hash12(cell + 1.3));
 	trail *= 0.5;
 	return vec3(vec2(f.x * 6.0, 0.0) * (m + trail), max(m, trail));

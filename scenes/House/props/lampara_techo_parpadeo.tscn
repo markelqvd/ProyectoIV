@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://cjnh58f3mf63m" path="res://scenes/House/flicker.gd" id="1_flicker_gd"]
+[ext_resource type="Material" path="res://scenes/House/materials/lampara.tres" id="2_mat_lampara"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_124"]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.06
+radial_segments = 24
+
+[node name="LamparaTechoParpadeo" type="Node3D"]
+
+[node name="Plafon" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.76, 0)
+material_override = ExtResource("2_mat_lampara")
+mesh = SubResource("CylinderMesh_124")
+
+[node name="Luz" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+light_color = Color(0.8, 0.9, 1, 1)
+light_energy = 0.35
+omni_range = 4.0
+script = ExtResource("1_flicker_gd")
+mode = 1

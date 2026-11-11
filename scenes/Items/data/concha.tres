@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Script" path="res://scenes/Items/item_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = "concha"
+display_name = "Concha"
+shape = 1
+size = 1.0
+color = Color(0.62, 0.3, 0.88, 1)
+icon_shadow = Color(0.4, 0.18, 0.58, 1)
+metallic = 0.15
+roughness = 0.35
+glow = 0.8
+world_scale = 1.1
+held_scale = 1.5
+place_height = 0.01
+grip_style = "cradle"

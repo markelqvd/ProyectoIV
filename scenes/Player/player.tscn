@@ -1,0 +1,52 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/FemaleHand/hand_viewmodel.tscn" id="2_hand"]
+[ext_resource type="Script" path="res://scenes/Player/hotbar.gd" id="3_hotbar"]
+[ext_resource type="Script" path="res://scenes/Player/crosshair.gd" id="4_crosshair"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_body"]
+radius = 0.22
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_body")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+near = 0.03
+
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -2.75)
+collide_with_areas = true
+
+[node name="PlaceRay" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -4)
+
+[node name="HeldItem" type="MeshInstance3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.25, -0.7)
+
+[node name="HandViewmodel" parent="Head/Camera3D" instance=ExtResource("2_hand")]
+
+[node name="Hotbar" type="CanvasLayer" parent="."]
+layer = 90
+script = ExtResource("3_hotbar")
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Crosshair" type="Control" parent="Overlay"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_crosshair")

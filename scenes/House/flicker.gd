@@ -1,71 +1,72 @@
 extends Light3D
-## Luz con parpadeo: fluorescente que falla, bombilla inestable o brillo de televisión.
 
-@export_enum("Fluorescente", "Bombilla", "Television") var mode: int = 0
-## Malla emisiva que se apaga junto con la luz (opcional).
-@export var emissive_mesh: GeometryInstance3D
+enum Mode { FLUORESCENT, BULB, TELEVISION }
 
-var _base: float = 1.0
+@export var mode: Mode = Mode.FLUORESCENT
+@export var emissive_mesh: NodePath
+
+var _emissive: GeometryInstance3D
+var _base_energy: float = 1.0
 var _base_color: Color
-var _t: float = 0.0
+var _time: float = 0.0
 var _next: float = 0.0
 var _burst: float = 0.0
 
 
 func _ready() -> void:
-	_base = light_energy
+	_emissive = get_node_or_null(emissive_mesh) as GeometryInstance3D
+	_base_energy = light_energy
 	_base_color = light_color
 	_next = randf_range(1.0, 4.0)
 
 
 func _process(delta: float) -> void:
-	# Si un interruptor la ha apagado, no hace nada.
 	if not visible:
 		return
-	_t += delta
+	_time += delta
 	match mode:
-		0:
+		Mode.FLUORESCENT:
 			_fluorescent(delta)
-		1:
-			_bulb()
-		2:
-			_tv()
+		Mode.BULB:
+			_bulb(delta)
+		Mode.TELEVISION:
+			_television()
 
 
-func _set_on(amount: float) -> void:
-	light_energy = _base * amount
-	if emissive_mesh:
-		emissive_mesh.visible = amount > 0.3
+func _set_level(amount: float) -> void:
+	light_energy = _base_energy * amount
+	if _emissive:
+		_emissive.visible = amount > 0.3
 
 
 func _fluorescent(delta: float) -> void:
 	if _burst > 0.0:
 		_burst -= delta
-		if _t > _next:
-			_next = _t + randf_range(0.03, 0.12)
-			_set_on(1.0 if randf() > 0.5 else 0.05)
+		if _time > _next:
+			_next = _time + randf_range(0.03, 0.12)
+			_set_level(1.0 if randf() > 0.5 else 0.05)
 		if _burst <= 0.0:
-			_set_on(1.0)
-			_next = _t + randf_range(2.0, 9.0)
-	elif _t > _next:
+			_set_level(1.0)
+			_next = _time + randf_range(2.0, 9.0)
+	elif _time > _next:
 		_burst = randf_range(0.2, 1.0)
 	else:
-		_set_on(0.95 + 0.05 * sin(_t * 120.0))
+		_set_level(0.95 + 0.05 * sin(_time * 120.0))
 
 
-func _bulb() -> void:
-	var n: float = 0.88 + 0.12 * sin(_t * 7.3) * sin(_t * 2.1 + 1.0)
-	if _t > _next:
-		_next = _t + randf_range(3.0, 10.0)
+func _bulb(delta: float) -> void:
+	var level: float = 0.88 + 0.12 * sin(_time * 7.3) * sin(_time * 2.1 + 1.0)
+	if _time > _next:
+		_next = _time + randf_range(3.0, 10.0)
 		_burst = 0.15
 	if _burst > 0.0:
-		_burst -= get_process_delta_time()
-		n *= 0.25
-	_set_on(n)
+		_burst -= delta
+		level *= 0.25
+	_set_level(level)
 
 
-func _tv() -> void:
-	if _t > _next:
-		_next = _t + randf_range(0.06, 0.45)
-		light_energy = _base * randf_range(0.5, 1.2)
+func _television() -> void:
+	if _time > _next:
+		_next = _time + randf_range(0.06, 0.45)
+		light_energy = _base_energy * randf_range(0.5, 1.2)
 		light_color = _base_color.lerp(Color(randf(), randf(), randf()), 0.25)

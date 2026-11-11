@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://scenes/Interactables/prompt_dot.svg" id="1_dot_svg"]
+[ext_resource type="Script" path="res://scenes/Interactables/light_switch.gd" id="2_p4_switch"]
+[ext_resource type="Material" path="res://scenes/House/materials/lampara_off.tres" id="3_mat_lampara_off"]
+[ext_resource type="Material" path="res://scenes/House/materials/lampara.tres" id="4_mat_lampara"]
+
+[sub_resource type="BoxShape3D" id="p4_4"]
+size = Vector3(1.6, 2.2, 1.6)
+
+[node name="InterruptorLampara" type="Node3D"]
+script = ExtResource("2_p4_switch")
+on_material = ExtResource("4_mat_lampara")
+off_material = ExtResource("3_mat_lampara_off")
+duration = 0.08
+min_look_dot = 0.88
+
+[node name="InteractArea" type="Area3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
+shape = SubResource("p4_4")
+
+[node name="Moving" type="Node3D" parent="."]
+
+[node name="Handle" type="Marker3D" parent="Moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+
+[node name="Prompt" type="Sprite3D" parent="Moving/Handle"]
+pixel_size = 0.0004
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("1_dot_svg")
+
+[node name="Contents" type="Node3D" parent="Moving"]

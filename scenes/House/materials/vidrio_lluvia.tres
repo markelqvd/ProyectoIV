@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://scenes/House/rain_glass.gdshader" id="1_dep"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_dep")
+shader_parameter/tint = Color(0.55, 0.62, 0.7, 1)
+shader_parameter/base_alpha = 0.12
+shader_parameter/drop_alpha = 0.35
+shader_parameter/drop_scale = 9.0
+shader_parameter/slide_speed = 0.25
+shader_parameter/bump_strength = 1.0
