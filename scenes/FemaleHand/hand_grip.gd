@@ -1,3 +1,4 @@
+# Echo con IA
 class_name HandGrip
 extends Node3D
 

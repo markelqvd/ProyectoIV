@@ -1,202 +1,104 @@
 [gd_scene format=3 uid="uid://0dcbe2f00ptr"]
 
 [ext_resource type="Texture2D" uid="uid://ddum0hmgah578" path="res://scenes/Palettes/waldgeist-39-1x.png" id="13_grmpy"]
-
-[ext_resource type="Texture2D" path="res://scenes/Interactables/prompt_dot.svg" id="dot_svg"]
-
-[ext_resource type="Script" path="res://scenes/Interactables/openable.gd" id="drawer_gd"]
-
+[ext_resource type="Texture2D" uid="uid://bq1bc58kcrqwv" path="res://scenes/Interactables/prompt_dot.svg" id="dot_svg"]
+[ext_resource type="Script" uid="uid://cnv81yw3oq0ej" path="res://scenes/Interactables/openable.gd" id="drawer_gd"]
 [ext_resource type="Script" uid="uid://cjnh58f3mf63m" path="res://scenes/House/flicker.gd" id="flicker_gd"]
-
-[ext_resource type="Script" path="res://scenes/Interactables/light_switch.gd" id="p4_switch"]
-
-[ext_resource type="Script" uid="uid://tj3nsm8fiku2" path="res://scenes/Game/ending_trigger.gd" id="p8_end"]
-
-[ext_resource type="Script" path="res://scenes/House/painting_glow.gd" id="p8_paint"]
-
-[ext_resource type="Script" uid="uid://c2r0i8q1cir5m" path="res://scenes/Game/readable.gd" id="p8_read"]
-
-[ext_resource type="Script" uid="uid://cqgun7v4mc447" path="res://scenes/Game/item_receptor.gd" id="p8_recep"]
-
-[ext_resource type="Script" path="res://scenes/Interactables/tv_remote.gd" id="p8_remote"]
-
-[ext_resource type="Script" path="res://scenes/Interactables/combination_safe.gd" id="p8_safe"]
-
-[ext_resource type="Script" uid="uid://57bmxhbo2m78" path="res://scenes/Game/story.gd" id="p8_story"]
-
-[ext_resource type="Shader" uid="uid://bmb64eqibh1r2" path="res://scenes/Palettes/Pixelado.gdshader" id="pix_shader"]
-
-[ext_resource type="Script" uid="uid://dirtldo3x8si5" path="res://scenes/House/storm.gd" id="storm_gd"]
-
-[ext_resource type="Script" path="res://scenes/Items/pickup.gd" id="pickup_gd"]
-
-[ext_resource type="PackedScene" path="res://scenes/Player/player.tscn" id="player_tscn"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/pared.tres" id="mat_pared"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/rellano_pared.tres" id="mat_rellano_pared"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/parquet.tres" id="mat_parquet"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/techo.tres" id="mat_techo"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/terrazo.tres" id="mat_terrazo"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/baldosa_bano.tres" id="mat_baldosa_bano"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/baldosa_cocina.tres" id="mat_baldosa_cocina"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/rellano_suelo.tres" id="mat_rellano_suelo"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/rodapie.tres" id="mat_rodapie"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/vidrio_lluvia.tres" id="mat_vidrio_lluvia"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/blanco_lacado.tres" id="mat_blanco_lacado"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/persiana.tres" id="mat_persiana"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/marmol.tres" id="mat_marmol"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/lampara_off.tres" id="mat_lampara_off"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/lampara.tres" id="mat_lampara"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/puerta.tres" id="mat_puerta"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/laton.tres" id="mat_laton"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/madera_oscura.tres" id="mat_madera_oscura"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/sabana.tres" id="mat_sabana"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/colcha.tres" id="mat_colcha"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/almohada.tres" id="mat_almohada"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/madera_media.tres" id="mat_madera_media"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/interior_mueble.tres" id="mat_interior_mueble"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/metal.tres" id="mat_metal"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/cuadro2.tres" id="mat_cuadro2"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/cuadro3.tres" id="mat_cuadro3"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/negro.tres" id="mat_negro"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/cuadro1.tres" id="mat_cuadro1"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/caja.tres" id="mat_caja"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/caja_int.tres" id="mat_caja_int"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/rueda.tres" id="mat_rueda"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/agujas.tres" id="mat_agujas"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/madera_clara.tres" id="mat_madera_clara"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/alfombra.tres" id="mat_alfombra"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/cuadro_det.tres" id="mat_cuadro_det"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/espejo.tres" id="mat_espejo"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/azulejo_bano.tres" id="mat_azulejo_bano"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/cielo.tres" id="mat_cielo"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/vent_on.tres" id="mat_vent_on"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/edif1.tres" id="mat_edif1"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/edif2.tres" id="mat_edif2"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/edif3.tres" id="mat_edif3"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/vent_off.tres" id="mat_vent_off"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/reloj.tres" id="mat_reloj"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/aguja_hora.tres" id="mat_aguja_hora"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/ceramica.tres" id="mat_ceramica"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/agua.tres" id="mat_agua"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/cortina.tres" id="mat_cortina"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/pantalla.tres" id="mat_pantalla"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/sofa.tres" id="mat_sofa"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/cojin.tres" id="mat_cojin"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/edificio.tres" id="mat_edificio"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/ventana_oscura.tres" id="mat_ventana_oscura"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/vitro.tres" id="mat_vitro"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/encimera.tres" id="mat_encimera"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/fuego.tres" id="mat_fuego"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/azulejo_cocina.tres" id="mat_azulejo_cocina"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/boton.tres" id="mat_boton"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/rellano_zocalo.tres" id="mat_rellano_zocalo"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/ascensor.tres" id="mat_ascensor"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/oscuro_total.tres" id="mat_oscuro_total"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/fluor.tres" id="mat_fluor"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/edificio2.tres" id="mat_edificio2"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/ventana_luz.tres" id="mat_ventana_luz"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/asfalto.tres" id="mat_asfalto"]
-
 [ext_resource type="Material" path="res://scenes/House/materials/acera.tres" id="mat_acera"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/ventana_tv.tres" id="mat_ventana_tv"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/farola.tres" id="mat_farola"]
-
+[ext_resource type="Material" path="res://scenes/House/materials/agua.tres" id="mat_agua"]
+[ext_resource type="Material" path="res://scenes/House/materials/agujas.tres" id="mat_agujas"]
+[ext_resource type="Material" path="res://scenes/House/materials/aguja_hora.tres" id="mat_aguja_hora"]
+[ext_resource type="Material" path="res://scenes/House/materials/alfombra.tres" id="mat_alfombra"]
+[ext_resource type="Material" path="res://scenes/House/materials/almohada.tres" id="mat_almohada"]
+[ext_resource type="Material" path="res://scenes/House/materials/ascensor.tres" id="mat_ascensor"]
+[ext_resource type="Material" path="res://scenes/House/materials/asfalto.tres" id="mat_asfalto"]
+[ext_resource type="Material" path="res://scenes/House/materials/azulejo_bano.tres" id="mat_azulejo_bano"]
+[ext_resource type="Material" path="res://scenes/House/materials/azulejo_cocina.tres" id="mat_azulejo_cocina"]
+[ext_resource type="Material" path="res://scenes/House/materials/baldosa_bano.tres" id="mat_baldosa_bano"]
+[ext_resource type="Material" path="res://scenes/House/materials/baldosa_cocina.tres" id="mat_baldosa_cocina"]
+[ext_resource type="Material" path="res://scenes/House/materials/blanco_lacado.tres" id="mat_blanco_lacado"]
+[ext_resource type="Material" path="res://scenes/House/materials/boton.tres" id="mat_boton"]
+[ext_resource type="Material" path="res://scenes/House/materials/caja.tres" id="mat_caja"]
+[ext_resource type="Material" path="res://scenes/House/materials/caja_int.tres" id="mat_caja_int"]
+[ext_resource type="Material" path="res://scenes/House/materials/ceramica.tres" id="mat_ceramica"]
+[ext_resource type="Material" path="res://scenes/House/materials/cielo.tres" id="mat_cielo"]
+[ext_resource type="Material" path="res://scenes/House/materials/cojin.tres" id="mat_cojin"]
+[ext_resource type="Material" path="res://scenes/House/materials/colcha.tres" id="mat_colcha"]
+[ext_resource type="Material" path="res://scenes/House/materials/cortina.tres" id="mat_cortina"]
+[ext_resource type="Material" path="res://scenes/House/materials/cuadro1.tres" id="mat_cuadro1"]
+[ext_resource type="Material" path="res://scenes/House/materials/cuadro2.tres" id="mat_cuadro2"]
+[ext_resource type="Material" path="res://scenes/House/materials/cuadro3.tres" id="mat_cuadro3"]
+[ext_resource type="Material" path="res://scenes/House/materials/cuadro_det.tres" id="mat_cuadro_det"]
 [ext_resource type="Material" path="res://scenes/House/materials/cuerda.tres" id="mat_cuerda"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/ropa1.tres" id="mat_ropa1"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/ropa2.tres" id="mat_ropa2"]
-
-[ext_resource type="Material" path="res://scenes/House/materials/ropa3.tres" id="mat_ropa3"]
-
+[ext_resource type="Material" path="res://scenes/House/materials/edif1.tres" id="mat_edif1"]
+[ext_resource type="Material" path="res://scenes/House/materials/edif2.tres" id="mat_edif2"]
+[ext_resource type="Material" path="res://scenes/House/materials/edif3.tres" id="mat_edif3"]
+[ext_resource type="Material" path="res://scenes/House/materials/edificio.tres" id="mat_edificio"]
+[ext_resource type="Material" path="res://scenes/House/materials/edificio2.tres" id="mat_edificio2"]
+[ext_resource type="Material" path="res://scenes/House/materials/encimera.tres" id="mat_encimera"]
+[ext_resource type="Material" path="res://scenes/House/materials/espejo.tres" id="mat_espejo"]
+[ext_resource type="Material" path="res://scenes/House/materials/farola.tres" id="mat_farola"]
+[ext_resource type="Material" path="res://scenes/House/materials/fluor.tres" id="mat_fluor"]
+[ext_resource type="Material" path="res://scenes/House/materials/fuego.tres" id="mat_fuego"]
 [ext_resource type="Material" path="res://scenes/House/materials/gota_lluvia.tres" id="mat_gota_lluvia"]
-
-[ext_resource type="PackedScene" path="res://scenes/House/props/lampara_techo.tscn" id="prop_lampara_techo"]
-
-[ext_resource type="PackedScene" path="res://scenes/House/props/lampara_techo_parpadeo.tscn" id="prop_lampara_techo_parpadeo"]
-
-[ext_resource type="PackedScene" path="res://scenes/House/props/silla.tscn" id="prop_silla"]
-
-[ext_resource type="PackedScene" path="res://scenes/House/props/interruptor_pared.tscn" id="prop_interruptor_pared"]
-
+[ext_resource type="Material" path="res://scenes/House/materials/interior_mueble.tres" id="mat_interior_mueble"]
+[ext_resource type="Material" path="res://scenes/House/materials/lampara.tres" id="mat_lampara"]
+[ext_resource type="Material" path="res://scenes/House/materials/lampara_off.tres" id="mat_lampara_off"]
+[ext_resource type="Material" path="res://scenes/House/materials/laton.tres" id="mat_laton"]
+[ext_resource type="Material" path="res://scenes/House/materials/madera_clara.tres" id="mat_madera_clara"]
+[ext_resource type="Material" path="res://scenes/House/materials/madera_media.tres" id="mat_madera_media"]
+[ext_resource type="Material" path="res://scenes/House/materials/madera_oscura.tres" id="mat_madera_oscura"]
+[ext_resource type="Material" path="res://scenes/House/materials/marmol.tres" id="mat_marmol"]
+[ext_resource type="Material" path="res://scenes/House/materials/metal.tres" id="mat_metal"]
+[ext_resource type="Material" path="res://scenes/House/materials/negro.tres" id="mat_negro"]
+[ext_resource type="Material" path="res://scenes/House/materials/oscuro_total.tres" id="mat_oscuro_total"]
+[ext_resource type="Material" path="res://scenes/House/materials/pantalla.tres" id="mat_pantalla"]
+[ext_resource type="Material" path="res://scenes/House/materials/pared.tres" id="mat_pared"]
+[ext_resource type="Material" path="res://scenes/House/materials/parquet.tres" id="mat_parquet"]
+[ext_resource type="Material" path="res://scenes/House/materials/persiana.tres" id="mat_persiana"]
+[ext_resource type="Material" path="res://scenes/House/materials/puerta.tres" id="mat_puerta"]
+[ext_resource type="Material" path="res://scenes/House/materials/rellano_pared.tres" id="mat_rellano_pared"]
+[ext_resource type="Material" path="res://scenes/House/materials/rellano_suelo.tres" id="mat_rellano_suelo"]
+[ext_resource type="Material" path="res://scenes/House/materials/rellano_zocalo.tres" id="mat_rellano_zocalo"]
+[ext_resource type="Material" path="res://scenes/House/materials/reloj.tres" id="mat_reloj"]
+[ext_resource type="Material" path="res://scenes/House/materials/rodapie.tres" id="mat_rodapie"]
+[ext_resource type="Material" path="res://scenes/House/materials/ropa1.tres" id="mat_ropa1"]
+[ext_resource type="Material" path="res://scenes/House/materials/ropa2.tres" id="mat_ropa2"]
+[ext_resource type="Material" path="res://scenes/House/materials/ropa3.tres" id="mat_ropa3"]
+[ext_resource type="Material" path="res://scenes/House/materials/rueda.tres" id="mat_rueda"]
+[ext_resource type="Material" path="res://scenes/House/materials/sabana.tres" id="mat_sabana"]
+[ext_resource type="Material" path="res://scenes/House/materials/sofa.tres" id="mat_sofa"]
+[ext_resource type="Material" path="res://scenes/House/materials/techo.tres" id="mat_techo"]
+[ext_resource type="Material" path="res://scenes/House/materials/terrazo.tres" id="mat_terrazo"]
+[ext_resource type="Material" path="res://scenes/House/materials/ventana_luz.tres" id="mat_ventana_luz"]
+[ext_resource type="Material" path="res://scenes/House/materials/ventana_oscura.tres" id="mat_ventana_oscura"]
+[ext_resource type="Material" path="res://scenes/House/materials/ventana_tv.tres" id="mat_ventana_tv"]
+[ext_resource type="Material" path="res://scenes/House/materials/vent_off.tres" id="mat_vent_off"]
+[ext_resource type="Material" path="res://scenes/House/materials/vent_on.tres" id="mat_vent_on"]
+[ext_resource type="Material" path="res://scenes/House/materials/vidrio_lluvia.tres" id="mat_vidrio_lluvia"]
+[ext_resource type="Material" path="res://scenes/House/materials/vitro.tres" id="mat_vitro"]
+[ext_resource type="Script" uid="uid://482c4lcrb6d3" path="res://scenes/Interactables/light_switch.gd" id="p4_switch"]
+[ext_resource type="Script" uid="uid://tj3nsm8fiku2" path="res://scenes/Game/ending_trigger.gd" id="p8_end"]
+[ext_resource type="Script" uid="uid://bery6i26362w" path="res://scenes/House/painting_glow.gd" id="p8_paint"]
+[ext_resource type="Script" uid="uid://c2r0i8q1cir5m" path="res://scenes/Game/readable.gd" id="p8_read"]
+[ext_resource type="Script" uid="uid://cqgun7v4mc447" path="res://scenes/Game/item_receptor.gd" id="p8_recep"]
+[ext_resource type="Script" uid="uid://ily7efx2sxie" path="res://scenes/Interactables/tv_remote.gd" id="p8_remote"]
+[ext_resource type="Script" uid="uid://dg4nml5sqw1us" path="res://scenes/Interactables/combination_safe.gd" id="p8_safe"]
+[ext_resource type="Script" uid="uid://57bmxhbo2m78" path="res://scenes/Game/story.gd" id="p8_story"]
+[ext_resource type="Script" uid="uid://cf1xibb3ce52w" path="res://scenes/Items/pickup.gd" id="pickup_gd"]
+[ext_resource type="Shader" uid="uid://bmb64eqibh1r2" path="res://scenes/Palettes/Pixelado.gdshader" id="pix_shader"]
+[ext_resource type="PackedScene" path="res://scenes/Player/player.tscn" id="player_tscn"]
 [ext_resource type="PackedScene" path="res://scenes/House/props/cajon_mesilla.tscn" id="prop_cajon_mesilla"]
-
 [ext_resource type="PackedScene" path="res://scenes/House/props/interruptor_lampara.tscn" id="prop_interruptor_lampara"]
-
-[ext_resource type="PackedScene" path="res://scenes/House/props/puerta_armario.tscn" id="prop_puerta_armario"]
-
-[ext_resource type="PackedScene" path="res://scenes/House/props/puerta_mueble_tv.tscn" id="prop_puerta_mueble_tv"]
-
+[ext_resource type="PackedScene" path="res://scenes/House/props/interruptor_pared.tscn" id="prop_interruptor_pared"]
+[ext_resource type="PackedScene" path="res://scenes/House/props/lampara_techo.tscn" id="prop_lampara_techo"]
+[ext_resource type="PackedScene" path="res://scenes/House/props/lampara_techo_parpadeo.tscn" id="prop_lampara_techo_parpadeo"]
 [ext_resource type="PackedScene" path="res://scenes/House/props/modulo_cocina.tscn" id="prop_modulo_cocina"]
-
+[ext_resource type="PackedScene" path="res://scenes/House/props/puerta_armario.tscn" id="prop_puerta_armario"]
+[ext_resource type="PackedScene" path="res://scenes/House/props/puerta_mueble_tv.tscn" id="prop_puerta_mueble_tv"]
 [ext_resource type="PackedScene" path="res://scenes/House/props/rueda_caja_fuerte.tscn" id="prop_rueda_caja_fuerte"]
+[ext_resource type="PackedScene" path="res://scenes/House/props/silla.tscn" id="prop_silla"]
+[ext_resource type="Script" uid="uid://dirtldo3x8si5" path="res://scenes/House/storm.gd" id="storm_gd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1"]
 sky_top_color = Color(0.1, 0.11, 0.13, 1)
@@ -669,12 +571,6 @@ size = Vector3(0.46, 0.02, 0.4)
 [sub_resource type="BoxMesh" id="BoxMesh_145"]
 size = Vector3(0.46, 0.02, 0.36)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_146"]
-size = Vector3(1.3, 1.4, 1.4)
-
-[sub_resource type="BoxMesh" id="BoxMesh_151"]
-size = Vector3(0.16, 0.018, 0.018)
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_152"]
 top_radius = 0.07
 bottom_radius = 0.07
@@ -765,6 +661,9 @@ size = Vector3(1.22, 0.375, 0.02)
 [sub_resource type="BoxMesh" id="BoxMesh_172"]
 size = Vector3(0.62, 0.01, 0.56)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_146"]
+size = Vector3(1.3, 1.4, 1.4)
+
 [sub_resource type="BoxMesh" id="BoxMesh_173"]
 size = Vector3(0.56, 0.11, 0.018)
 
@@ -776,6 +675,9 @@ size = Vector3(0.012, 0.0825, 0.45)
 
 [sub_resource type="BoxMesh" id="BoxMesh_176"]
 size = Vector3(0.52, 0.0825, 0.012)
+
+[sub_resource type="BoxMesh" id="BoxMesh_151"]
+size = Vector3(0.16, 0.018, 0.018)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_177"]
 top_radius = 0.07
@@ -1374,11 +1276,11 @@ size = Vector3(0.6, 0.9, 0.6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_316"]
 size = Vector3(0.9, 1.4, 1.4)
 
-[sub_resource type="BoxMesh" id="BoxMesh_318"]
-size = Vector3(0.54, 0.012, 0.45)
-
 [sub_resource type="BoxMesh" id="BoxMesh_327"]
 size = Vector3(0.58, 0.38, 0.018)
+
+[sub_resource type="BoxMesh" id="BoxMesh_318"]
+size = Vector3(0.54, 0.012, 0.45)
 
 [sub_resource type="BoxMesh" id="BoxMesh_328"]
 size = Vector3(0.012, 0.285, 0.45)
@@ -2815,7 +2717,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.325, 1.43, 8.45)
 material_override = ExtResource("mat_marmol")
 mesh = SubResource("BoxMesh_122")
 
-[node name="LamparaDormitorio" parent="SubViewportContainer/SubViewport/Casa" instance=ExtResource("prop_lampara_techo")]
+[node name="LamparaDormitorio" parent="SubViewportContainer/SubViewport/Casa" unique_id=1742432724 instance=ExtResource("prop_lampara_techo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2.5)
 
 [node name="LamparaPasillo" type="Node3D" parent="SubViewportContainer/SubViewport/Casa" unique_id=887976133]
@@ -2835,14 +2737,11 @@ omni_range = 4.5
 script = ExtResource("flicker_gd")
 mode = 1
 
-[node name="LamparaBano" parent="SubViewportContainer/SubViewport/Casa" instance=ExtResource("prop_lampara_techo_parpadeo")]
+[node name="LamparaBano" parent="SubViewportContainer/SubViewport/Casa" unique_id=347886088 instance=ExtResource("prop_lampara_techo_parpadeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 0, 8.6)
 
-[node name="LamparaSalon" parent="SubViewportContainer/SubViewport/Casa" instance=ExtResource("prop_lampara_techo")]
+[node name="LamparaSalon" parent="SubViewportContainer/SubViewport/Casa" unique_id=376831990 instance=ExtResource("prop_lampara_techo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 3)
-
-[node name="Luz" parent="SubViewportContainer/SubViewport/Casa/LamparaSalon"]
-omni_range = 7.0
 
 [node name="LamparaComedor" type="Node3D" parent="SubViewportContainer/SubViewport/Casa" unique_id=1495178995]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 7.2)
@@ -2859,12 +2758,8 @@ light_color = Color(1, 0.85, 0.65, 1)
 light_energy = 0.8
 omni_range = 6.0
 
-[node name="LamparaRecibidor" parent="SubViewportContainer/SubViewport/Casa" instance=ExtResource("prop_lampara_techo_parpadeo")]
+[node name="LamparaRecibidor" parent="SubViewportContainer/SubViewport/Casa" unique_id=567501591 instance=ExtResource("prop_lampara_techo_parpadeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7, 0, 9.3)
-
-[node name="Luz" parent="SubViewportContainer/SubViewport/Casa/LamparaRecibidor"]
-light_color = Color(1, 0.85, 0.65, 1)
-omni_range = 3.5
 
 [node name="Dormitorio" type="Node3D" parent="SubViewportContainer/SubViewport/Casa" unique_id=2048936201]
 
@@ -3076,7 +2971,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 material_override = ExtResource("mat_madera_oscura")
 mesh = SubResource("BoxMesh_145")
 
-[node name="Cajon" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/MesillaIzquierda" instance=ExtResource("prop_cajon_mesilla")]
+[node name="Cajon" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/MesillaIzquierda" unique_id=1163572140 instance=ExtResource("prop_cajon_mesilla")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.2)
 
 [node name="PieLampara" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/MesillaIzquierda" unique_id=1087100421]
@@ -3107,7 +3002,7 @@ mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0)
 shape = SubResource("BoxShape3D_155")
 
-[node name="Interruptor" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/MesillaIzquierda" instance=ExtResource("prop_interruptor_lampara")]
+[node name="Interruptor" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/MesillaIzquierda" unique_id=2020696593 instance=ExtResource("prop_interruptor_lampara")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 start_on = true
 lights = Array[NodePath]([NodePath("../Luz")])
@@ -3146,7 +3041,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 material_override = ExtResource("mat_madera_oscura")
 mesh = SubResource("BoxMesh_145")
 
-[node name="Cajon" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/MesillaDerecha" instance=ExtResource("prop_cajon_mesilla")]
+[node name="Cajon" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/MesillaDerecha" unique_id=1725654168 instance=ExtResource("prop_cajon_mesilla")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.2)
 
 [node name="PieLampara" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/MesillaDerecha" unique_id=906277524]
@@ -3176,7 +3071,7 @@ light_energy = 0.7
 shadow_enabled = true
 omni_range = 3.2
 
-[node name="Interruptor" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/MesillaDerecha" instance=ExtResource("prop_interruptor_lampara")]
+[node name="Interruptor" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/MesillaDerecha" unique_id=1154009984 instance=ExtResource("prop_interruptor_lampara")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 lights = Array[NodePath]([NodePath("../Luz")])
 lamp_meshes = Array[NodePath]([NodePath("../Pantalla")])
@@ -3278,11 +3173,11 @@ mesh = SubResource("BoxMesh_165")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, -0.05)
 shape = SubResource("BoxShape3D_166")
 
-[node name="PuertaIzquierda" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario" instance=ExtResource("prop_puerta_armario")]
+[node name="PuertaIzquierda" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario" unique_id=1273709431 instance=ExtResource("prop_puerta_armario")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.1, 0.312)
 open_rotation_degrees = Vector3(0, -105, 0)
 
-[node name="PuertaDerecha" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario" instance=ExtResource("prop_puerta_armario")]
+[node name="PuertaDerecha" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario" unique_id=474852191 instance=ExtResource("prop_puerta_armario")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 1, 0.1, 0.312)
 open_rotation_degrees = Vector3(0, 105, 0)
 
@@ -3371,15 +3266,15 @@ visible = false
 script = ExtResource("pickup_gd")
 item_id = "key"
 
-[node name="Rueda1" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario/CajaFuerte" instance=ExtResource("prop_rueda_caja_fuerte")]
+[node name="Rueda1" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario/CajaFuerte" unique_id=821274274 instance=ExtResource("prop_rueda_caja_fuerte")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.3276, 0)
 safe = NodePath("..")
 
-[node name="Rueda2" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario/CajaFuerte" instance=ExtResource("prop_rueda_caja_fuerte")]
+[node name="Rueda2" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario/CajaFuerte" unique_id=1421036016 instance=ExtResource("prop_rueda_caja_fuerte")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.21, 0)
 safe = NodePath("..")
 
-[node name="Rueda3" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario/CajaFuerte" instance=ExtResource("prop_rueda_caja_fuerte")]
+[node name="Rueda3" parent="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario/CajaFuerte" unique_id=842375021 instance=ExtResource("prop_rueda_caja_fuerte")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.0924, 0)
 safe = NodePath("..")
 
@@ -4950,11 +4845,11 @@ mesh = SubResource("BoxMesh_272")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.03)
 shape = SubResource("BoxShape3D_273")
 
-[node name="PuertaIzquierda" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/MuebleTV" instance=ExtResource("prop_puerta_mueble_tv")]
+[node name="PuertaIzquierda" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/MuebleTV" unique_id=1316702861 instance=ExtResource("prop_puerta_mueble_tv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.895, 0.08, 0.235)
 open_rotation_degrees = Vector3(0, -100, 0)
 
-[node name="PuertaDerecha" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/MuebleTV" instance=ExtResource("prop_puerta_mueble_tv")]
+[node name="PuertaDerecha" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/MuebleTV" unique_id=2075368779 instance=ExtResource("prop_puerta_mueble_tv")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.895, 0.08, 0.235)
 open_rotation_degrees = Vector3(0, 100, 0)
 
@@ -5213,16 +5108,16 @@ mesh = SubResource("CylinderMesh_300")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38, 0)
 shape = SubResource("CylinderShape3D_301")
 
-[node name="Silla1" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor" instance=ExtResource("prop_silla")]
+[node name="Silla1" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor" unique_id=247477840 instance=ExtResource("prop_silla")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 12, 0, 8)
 
-[node name="Silla2" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor" instance=ExtResource("prop_silla")]
+[node name="Silla2" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor" unique_id=1934924879 instance=ExtResource("prop_silla")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 6.4)
 
-[node name="Silla3" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor" instance=ExtResource("prop_silla")]
+[node name="Silla3" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor" unique_id=52027213 instance=ExtResource("prop_silla")]
 transform = Transform3D(0.342, 0, -0.9397, 0, 1, 0, 0.9397, 0, 0.342, 13.25, 0, 7.5)
 
-[node name="Silla4" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor" instance=ExtResource("prop_silla")]
+[node name="Silla4" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor" unique_id=722333073 instance=ExtResource("prop_silla")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 11.2, 0, 7.2)
 
 [node name="Cocina" type="Node3D" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor" unique_id=1828680245]
@@ -5527,10 +5422,10 @@ visible = false
 script = ExtResource("pickup_gd")
 item_id = "concha"
 
-[node name="Modulo1" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" instance=ExtResource("prop_modulo_cocina")]
+[node name="Modulo1" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" unique_id=606975007 instance=ExtResource("prop_modulo_cocina")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15, 0, 0)
 
-[node name="Modulo2" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" instance=ExtResource("prop_modulo_cocina")]
+[node name="Modulo2" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" unique_id=1776901994 instance=ExtResource("prop_modulo_cocina")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 0, 0)
 
 [node name="Modulo3" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" unique_id=1223169616]
@@ -5664,7 +5559,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.012)
 material_override = ExtResource("mat_metal")
 mesh = SubResource("BoxMesh_151")
 
-[node name="Modulo4" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" instance=ExtResource("prop_modulo_cocina")]
+[node name="Modulo4" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" unique_id=1022156613 instance=ExtResource("prop_modulo_cocina")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95, 0, 0)
 
 [node name="Modulo5" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" unique_id=821556967]
@@ -5751,10 +5646,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.012)
 material_override = ExtResource("mat_metal")
 mesh = SubResource("BoxMesh_151")
 
-[node name="Modulo6" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" instance=ExtResource("prop_modulo_cocina")]
+[node name="Modulo6" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" unique_id=442084746 instance=ExtResource("prop_modulo_cocina")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15, 0, 0)
 
-[node name="Modulo7" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" instance=ExtResource("prop_modulo_cocina")]
+[node name="Modulo7" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" unique_id=1077059372 instance=ExtResource("prop_modulo_cocina")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 0)
 
 [node name="Encimera" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina" unique_id=1349319586]
@@ -6356,46 +6251,46 @@ shape = SubResource("p8_46")
 
 [node name="Interruptores" type="Node3D" parent="SubViewportContainer/SubViewport/Casa" unique_id=1845477775]
 
-[node name="Dormitorio" parent="SubViewportContainer/SubViewport/Casa/Interruptores" instance=ExtResource("prop_interruptor_pared")]
+[node name="Dormitorio" parent="SubViewportContainer/SubViewport/Casa/Interruptores" unique_id=1047512171 instance=ExtResource("prop_interruptor_pared")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 2, 1.1, 4.923)
 lights = Array[NodePath]([NodePath("../../LamparaDormitorio/Luz")])
 lamp_meshes = Array[NodePath]([NodePath("../../LamparaDormitorio/Plafon")])
 on_material = ExtResource("mat_lampara")
 
-[node name="Pasillo" parent="SubViewportContainer/SubViewport/Casa/Interruptores" instance=ExtResource("prop_interruptor_pared")]
+[node name="Pasillo" parent="SubViewportContainer/SubViewport/Casa/Interruptores" unique_id=646898640 instance=ExtResource("prop_interruptor_pared")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95, 1.1, 5.077)
 start_on = true
 lights = Array[NodePath]([NodePath("../../LamparaPasillo/Luz")])
 lamp_meshes = Array[NodePath]([NodePath("../../LamparaPasillo/Plafon")])
 on_material = ExtResource("mat_lampara")
 
-[node name="Bano" parent="SubViewportContainer/SubViewport/Casa/Interruptores" instance=ExtResource("prop_interruptor_pared")]
+[node name="Bano" parent="SubViewportContainer/SubViewport/Casa/Interruptores" unique_id=1622749802 instance=ExtResource("prop_interruptor_pared")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8, 1.1, 6.887)
 start_on = true
 lights = Array[NodePath]([NodePath("../../LamparaBano/Luz")])
 lamp_meshes = Array[NodePath]([NodePath("../../LamparaBano/Plafon")])
 on_material = ExtResource("mat_lampara")
 
-[node name="Salon" parent="SubViewportContainer/SubViewport/Casa/Interruptores" instance=ExtResource("prop_interruptor_pared")]
+[node name="Salon" parent="SubViewportContainer/SubViewport/Casa/Interruptores" unique_id=138523965 instance=ExtResource("prop_interruptor_pared")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 8.077, 1.1, 4.6)
 lights = Array[NodePath]([NodePath("../../LamparaSalon/Luz")])
 lamp_meshes = Array[NodePath]([NodePath("../../LamparaSalon/Plafon")])
 on_material = ExtResource("mat_lampara")
 
-[node name="Comedor" parent="SubViewportContainer/SubViewport/Casa/Interruptores" instance=ExtResource("prop_interruptor_pared")]
+[node name="Comedor" parent="SubViewportContainer/SubViewport/Casa/Interruptores" unique_id=591992998 instance=ExtResource("prop_interruptor_pared")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 11.55, 1.1, 10.323)
 lights = Array[NodePath]([NodePath("../../LamparaComedor/Luz")])
 lamp_meshes = Array[NodePath]([NodePath("../../LamparaComedor/Plafon")])
 on_material = ExtResource("mat_lampara")
 
-[node name="Recibidor" parent="SubViewportContainer/SubViewport/Casa/Interruptores" instance=ExtResource("prop_interruptor_pared")]
+[node name="Recibidor" parent="SubViewportContainer/SubViewport/Casa/Interruptores" unique_id=1445161479 instance=ExtResource("prop_interruptor_pared")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 11.67, 1.1, 10.323)
 start_on = true
 lights = Array[NodePath]([NodePath("../../LamparaRecibidor/Luz")])
 lamp_meshes = Array[NodePath]([NodePath("../../LamparaRecibidor/Plafon")])
 on_material = ExtResource("mat_lampara")
 
-[node name="Rellano" parent="SubViewportContainer/SubViewport/Casa/Interruptores" instance=ExtResource("prop_interruptor_pared")]
+[node name="Rellano" parent="SubViewportContainer/SubViewport/Casa/Interruptores" unique_id=202334564 instance=ExtResource("prop_interruptor_pared")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.85, 1.25, 10.492)
 start_on = true
 lights = Array[NodePath]([NodePath("../../Rellano/Fluorescente/Luz")])
@@ -7901,7 +7796,7 @@ visibility_aabb = AABB(-3.8, -26, -3.7, 7.6, 28, 7.4)
 process_material = SubResource("ParticleProcessMaterial_431")
 draw_pass_1 = SubResource("QuadMesh_429")
 
-[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("player_tscn")]
+[node name="Player" parent="SubViewportContainer/SubViewport" unique_id=698917675 instance=ExtResource("player_tscn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.05, 4.1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport" unique_id=1014372536]
@@ -7914,21 +7809,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[connection signal="opened" from="SubViewportContainer/SubViewport/Casa/Dormitorio/CamaMatrimonio/Almohada" to="SubViewportContainer/SubViewport/Casa/Dormitorio/CamaMatrimonio/LlavePortal" method="show"]
-
-[connection signal="closed" from="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario/PuertaIzquierda" to="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario/LuzArmario" method="hide"]
-
-[connection signal="opened" from="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario/PuertaIzquierda" to="SubViewportContainer/SubViewport/Casa/Dormitorio/Armario/LuzArmario" method="show"]
-
-[connection signal="opened" from="SubViewportContainer/SubViewport/Casa/Pasillo/Comoda/CajonSuperior" to="SubViewportContainer/SubViewport/Casa/Pasillo/Comoda/CajonSuperior/Moving/Contents/FotoLeer" method="show"]
-
-[connection signal="opened" from="SubViewportContainer/SubViewport/Casa/Pasillo/Comoda/CajonSuperior" to="SubViewportContainer/SubViewport/Casa/Pasillo/Comoda/CajonSuperior/Moving/Contents/NotaLeer" method="show"]
-
-[connection signal="closed" from="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina/Nevera/PuertaNevera" to="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina/Nevera/LuzInterior" method="hide"]
-
-[connection signal="opened" from="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina/Nevera/PuertaNevera" to="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina/Nevera/LuzInterior" method="show"]
-
-[connection signal="opened" from="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina/Nevera/PuertaNevera" to="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina/Nevera/Concha" method="show"]
-
-[connection signal="opened" from="SubViewportContainer/SubViewport/Casa/SalonCocinaComedor/Cocina/Nevera/PuertaNevera" to="SubViewportContainer/SubViewport/Casa/Historia" method="on_fridge_opened"]
